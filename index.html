@@ -10,24 +10,80 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#ffffff; --card:#f8f9fc; --muted:#555; --text:#111; --accent:#007bff; --accent2:#00c6ff;
+      --bg:#ffffff;
+      --card:#f8f9fc;
+      --muted:#555;
+      --text:#111;
+      --accent:#003366;
+      --accent2:#0055aa; 
     }
     *{box-sizing:border-box}
     html,body{margin:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
     a{color:inherit;text-decoration:none}
     .container{max-width:1100px;margin:auto;padding:0 20px}
-    .btn{display:inline-block;padding:14px 20px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.15);transition:transform .12s ease, box-shadow .12s ease}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.2)}
-    header{position:sticky;top:0;background:white;border-bottom:1px solid #eee;z-index:10}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    nav .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px;color:var(--accent)}
+    .btn{
+      display:inline-block;
+      padding:14px 20px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:white;
+      font-weight:700;
+      box-shadow:0 4px 12px rgba(0,0,0,.15);
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 6px 18px rgba(0,0,0,.2);
+    }
+    header{
+      position:sticky;
+      top:0;
+      background:white;
+      border-bottom:1px solid #eee;
+      z-index:10;
+    }
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+    }
+    nav .brand{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      font-weight:800;
+      letter-spacing:.3px;
+      color:var(--accent);
+    }
     nav .links a{opacity:.85;margin-left:16px}
     nav .links a:hover{opacity:1}
 
-    .hero{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;padding:64px 0;text-align:center}
-    .hero h1{font-size:48px;line-height:1.05;margin:0 0 14px;color:var(--accent)}
+    .hero{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:32px;
+      align-items:center;
+      padding:64px 0;
+    }
+    .hero-content{text-align:left}
+    .hero h1{
+      font-size:48px;
+      line-height:1.05;
+      margin:0 0 14px;
+      color:var(--accent);
+    }
     .hero p{font-size:18px;color:var(--muted);margin:0 0 24px}
+    .hero img{
+      width:100%;
+      border-radius:16px;
+      box-shadow:0 6px 20px rgba(0,0,0,.15);
+    }
 
     .section{padding:56px 0}
     .section h2{font-size:32px;margin:0 0 10px;color:var(--accent)}
@@ -45,18 +101,21 @@
     .price-card ul{margin:0 0 16px;padding-left:18px;color:var(--muted)}
     .price-card .btn{margin-top:auto;text-align:center}
 
-    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .quote{background:var(--card);border:1px solid #ddd;border-radius:16px;padding:18px;font-style:italic}
-
-    .cta{background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:20px;padding:28px;text-align:center;color:white}
+    .cta{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      border-radius:20px;
+      padding:28px;
+      text-align:center;
+      color:white;
+    }
 
     footer{padding:36px 0;color:#777;border-top:1px solid #eee;margin-top:40px}
 
     @media (max-width: 900px){
-      .features,.pricing,.testimonials{grid-template-columns:1fr 1fr}
+      .features,.pricing{grid-template-columns:1fr 1fr}
     }
     @media (max-width: 600px){
-      .features,.pricing,.testimonials{grid-template-columns:1fr}
+      .features,.pricing{grid-template-columns:1fr}
       .hero h1{font-size:36px}
     }
   </style>
@@ -79,11 +138,15 @@
 
   <main>
     <section class="hero container">
-      <div>
+      <div class="hero-content">
         <h1>Empowering Businesses with Reliable Software</h1>
         <p>White Water International helps teams launch faster with automatic updates, rock-solid security, and simple pricing. No servers to manage, no headaches.</p>
         <a href="#pricing" class="btn">See Plans</a>
         <span style="display:inline-block;margin-left:12px;color:var(--muted)">Free 14-day trial • No credit card</span>
+      </div>
+      <div>
+        <!-- Replace the link below with your actual image URL -->
+        <img src="https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2025/06/Sales-Management-Software-1.webp?resize=2048,1152" alt="Software illustration">
       </div>
     </section>
 
