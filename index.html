@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AcmeSoft — Fast, Friendly Software</title>
+  <meta name="description" content="A simple one‑page website for selling software." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020; --card:#121a34; --muted:#9fb0ff; --text:#e9edff; --accent:#7c9dff; --accent2:#9ef0ff;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#0b1020 0%,#0b1020 50%,#0d1430 100%);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:auto;padding:0 20px}
+    .btn{display:inline-block;padding:14px 20px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#061024;font-weight:700;box-shadow:0 8px 24px rgba(124,157,255,.35);transition:transform .12s ease, box-shadow .12s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(124,157,255,.45)}
+    header{position:sticky;top:0;background:rgba(11,16,32,.6);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    nav .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
+    nav .links a{opacity:.85;margin-left:16px}
+    nav .links a:hover{opacity:1}
+
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:64px 0}
+    .hero h1{font-size:48px;line-height:1.05;margin:0 0 14px}
+    .hero p{font-size:18px;color:var(--muted);margin:0 0 24px}
+    .hero .card{background:radial-gradient(80% 100% at 20% 0%,rgba(124,157,255,.2),transparent 60%),var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:22px}
+
+    .section{padding:56px 0}
+    .section h2{font-size:32px;margin:0 0 10px}
+    .muted{color:var(--muted)}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px}
+    .feature h3{margin:10px 0 6px;font-size:18px}
+
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price-card{background:linear-gradient(180deg,rgba(158,240,255,.06),rgba(124,157,255,.04)),var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px;display:flex;flex-direction:column}
+    .price-card h3{margin:0 0 6px}
+    .price{font-size:34px;font-weight:800;margin:4px 0 12px}
+    .price small{font-weight:600;opacity:.8}
+    .price-card ul{margin:0 0 16px;padding-left:18px;color:var(--muted)}
+    .price-card .btn{margin-top:auto;text-align:center}
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+    .device{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:14px;text-align:center}
+    .device figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .quote{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px}
+
+    .cta{background:linear-gradient(135deg,rgba(124,157,255,.12),rgba(158,240,255,.10));border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px;text-align:center}
+
+    footer{padding:36px 0;color:#b9c6ff80}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .features,.pricing,.testimonials,.gallery{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 600px){
+      .features,.pricing,.testimonials,.gallery{grid-template-columns:1fr}
+      .hero h1{font-size:36px}
+    }
+
+    /* Simple computer illustrations (inline SVG sized via .svg-wrap) */
+    .svg-wrap{aspect-ratio:16/10;background:radial-gradient(100% 100% at 50% 0%, rgba(124,157,255,.15), transparent 60%);border-radius:12px;display:grid;place-items:center}
+    svg{width:84%;height:auto;filter:drop-shadow(0 8px 20px rgba(0,0,0,.35))}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2l3.5 7.2 7.9 1.1-5.7 5.6 1.3 7.9L12 20.2 5 23.8l1.3-7.9L.6 10.3l7.9-1.1L12 2z" fill="#9EF0FF"/></svg>
+          <span>AcmeSoft</span>
+        </div>
+        <div class="links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact" class="btn" style="padding:10px 14px">Buy Now</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div>
+        <h1>Sell more. Support less. <br>Software that just works.</h1>
+        <p>AcmeSoft helps teams launch faster with automatic updates, rock‑solid security, and simple pricing. No servers to manage, no headaches.</p>
+        <a href="#pricing" class="btn">See Plans</a>
+        <span style="display:inline-block;margin-left:12px;color:var(--muted)">Free 14‑day trial • No credit card</span>
+      </div>
+      <div class="card">
+        <div class="svg-wrap" aria-hidden="true">
+          <!-- Desktop Computer -->
+          <svg viewBox="0 0 640 400" role="img" aria-label="Desktop computer illustration">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#9EF0FF"/>
+                <stop offset="100%" stop-color="#7C9DFF"/>
+              </linearGradient>
+            </defs>
+            <rect x="60" y="40" rx="18" ry="18" width="520" height="300" fill="#0f1838" stroke="#9fb0ff66" stroke-width="4"/>
+            <rect x="90" y="70" width="460" height="240" rx="10" fill="#1a2650"/>
+            <rect x="240" y="350" width="160" height="10" rx="5" fill="#3b4b80"/>
+            <rect x="220" y="360" width="200" height="10" rx="5" fill="url(#g1)"/>
+            <circle cx="560" cy="56" r="6" fill="#7C9DFF"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section container">
+      <h2>Why teams choose AcmeSoft</h2>
+      <p class="muted">Everything you need to build, launch, and scale without the busywork.</p>
+      <div class="features" style="margin-top:16px">
+        <div class="feature">
+          <strong>1‑click installs</strong>
+          <p class="muted">Start in minutes with guided setup and best‑practice defaults.</p>
+        </div>
+        <div class="feature">
+          <strong>Automatic updates</strong>
+          <p class="muted">We ship weekly improvements with zero downtime.</p>
+        </div>
+        <div class="feature">
+          <strong>Security baked in</strong>
+          <p class="muted">SSO, role controls, and audit logs from day one.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section container">
+      <h2>Simple pricing</h2>
+      <p class="muted">Try any plan free for 14 days. Cancel anytime.</p>
+      <div class="pricing" style="margin-top:16px">
+        <article class="price-card" aria-label="Starter plan">
+          <h3>Starter</h3>
+          <p class="price">$9 <small>/ mo</small></p>
+          <ul>
+            <li>Up to 3 projects</li>
+            <li>Community support</li>
+            <li>Basic analytics</li>
+          </ul>
+          <a class="btn" href="#contact">Choose Starter</a>
+        </article>
+        <article class="price-card" aria-label="Growth plan">
+          <h3>Growth</h3>
+          <p class="price">$29 <small>/ mo</small></p>
+          <ul>
+            <li>Unlimited projects</li>
+            <li>Priority support</li>
+            <li>Advanced analytics</li>
+          </ul>
+          <a class="btn" href="#contact">Choose Growth</a>
+        </article>
+        <article class="price-card" aria-label="Business plan">
+          <h3>Business</h3>
+          <p class="price">$79 <small>/ mo</small></p>
+          <ul>
+            <li>SAML SSO + Roles</li>
+            <li>Audit logs</li>
+            <li>99.9% uptime SLA</li>
+          </ul>
+          <a class="btn" href="#contact">Choose Business</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="section container">
+      <h2>Pictures of computers</h2>
+      <p class="muted">A quick peek at the devices our customers love using.</p>
+      <div class="gallery">
+        <!-- Laptop -->
+        <figure class="device">
+          <div class="svg-wrap">
+            <svg viewBox="0 0 640 400" role="img" aria-label="Laptop computer illustration">
+              <rect x="140" y="60" rx="16" ry="16" width="360" height="220" fill="#0f1838" stroke="#9fb0ff66" stroke-width="4"/>
+              <rect x="160" y="80" width="320" height="180" rx="10" fill="#1a2650"/>
+              <rect x="80" y="290" width="480" height="24" rx="12" fill="#2b3b70"/>
+              <rect x="120" y="314" width="400" height="14" rx="7" fill="#7C9DFF"/>
+            </svg>
+          </div>
+          <figcaption>Laptop</figcaption>
+        </figure>
+        <!-- Desktop -->
+        <figure class="device">
+          <div class="svg-wrap">
+            <svg viewBox="0 0 640 400" role="img" aria-label="Desktop monitor illustration">
+              <rect x="90" y="60" rx="18" ry="18" width="460" height="260" fill="#0f1838" stroke="#9fb0ff66" stroke-width="4"/>
+              <rect x="115" y="85" width="410" height="210" rx="10" fill="#1a2650"/>
+              <rect x="250" y="330" width="140" height="12" rx="6" fill="#3b4b80"/>
+              <rect x="225" y="342" width="190" height="12" rx="6" fill="#9EF0FF"/>
+            </svg>
+          </div>
+          <figcaption>Desktop</figcaption>
+        </figure>
+        <!-- Server / Tower -->
+        <figure class="device">
+          <div class="svg-wrap">
+            <svg viewBox="0 0 640 400" role="img" aria-label="Computer tower illustration">
+              <rect x="240" y="60" rx="16" ry="16" width="160" height="280" fill="#0f1838" stroke="#9fb0ff66" stroke-width="4"/>
+              <rect x="260" y="90" width="120" height="40" rx="6" fill="#1a2650"/>
+              <rect x="260" y="150" width="120" height="40" rx="6" fill="#1a2650"/>
+              <rect x="260" y="210" width="120" height="40" rx="6" fill="#1a2650"/>
+              <circle cx="320" cy="300" r="10" fill="#7C9DFF"/>
+            </svg>
+          </div>
+          <figcaption>Workstation</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2>Loved by builders</h2>
+      <p class="muted">Join thousands of teams shipping faster with AcmeSoft.</p>
+      <div class="testimonials" style="margin-top:16px">
+        <blockquote class="quote">“Setup took 5 minutes and saved us days of work every month.” — Jamie, Indie Dev</blockquote>
+        <blockquote class="quote">“We switched and never looked back. Support is instant.” — Priya, CTO</blockquote>
+        <blockquote class="quote">“The analytics alone paid for the first year.” — Mateo, PM</blockquote>
+      </div>
+    </section>
+
+    <section id="contact" class="section container">
+      <div class="cta">
+        <h2>Ready to get started?</h2>
+        <p class="muted">Start your free 14‑day trial. Upgrade, downgrade, or cancel anytime.</p>
+        <a href="#" class="btn">Buy AcmeSoft</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+      <small>© <span id="year"></span> AcmeSoft, Inc.</small>
+      <small>Privacy • Terms • Support</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
