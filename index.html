@@ -187,12 +187,55 @@
     </section>
 
     <section id="contact" class="section container">
-      <div class="cta">
-        <h2>Ready to get started?</h2>
-        <p>Start your free 14-day trial. Upgrade, downgrade, or cancel anytime.</p>
-        <a href="#" class="btn">Buy Now</a>
-      </div>
-    </section>
+  <div class="cta">
+    <h2>Ready to get started?</h2>
+    <p>Start your free 14-day trial or send us a message.</p>
+
+    <form id="contact-form" action="/contact" method="POST" style="max-width:480px;margin:20px auto;text-align:left;">
+      <!-- Honeypot (hidden) -->
+      <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
+      <label style="display:block;margin:6px 0 4px;">Name</label>
+      <input type="text" name="name" required
+             style="width:100%;padding:10px;border-radius:8px;border:none;margin-bottom:10px;">
+
+      <label style="display:block;margin:6px 0 4px;">Email</label>
+      <input type="email" name="email" required
+             style="width:100%;padding:10px;border-radius:8px;border:none;margin-bottom:10px;">
+
+      <label style="display:block;margin:6px 0 4px;">Message</label>
+      <textarea name="message" required
+                style="width:100%;padding:10px;border-radius:8px;border:none;height:120px;margin-bottom:12px;"></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+      <div id="contact-status" class="muted" style="margin-top:10px;"></div>
+    </form>
+  </div>
+</section>
+
+<script>
+  // Progressive enhancement: submit via fetch; still works if JS is disabled
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('contact-status');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = "Sending...";
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: formData });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        statusEl.textContent = data.msg || "Thanks! We'll be in touch.";
+        form.reset();
+      } else {
+        statusEl.textContent = (data && data.error) ? data.error : "Something went wrong. Please try again.";
+      }
+    } catch {
+      statusEl.textContent = "Network error. Please try again.";
+    }
+  });
+</script>
   </main>
 
   <footer>
